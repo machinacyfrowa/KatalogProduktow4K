@@ -20,5 +20,14 @@ namespace KatalogProduktow4K
         {
             InitializeComponent();
         }
+
+        private void Oblicz(object sender, RoutedEventArgs e)
+        {
+            //TODO: pobierz tekst z pola z ceną i zmień go na liczbę
+            //TODO: pobierz tekst z pola z ilością i zmień go na liczbę
+            //TODO: Jeśli wartości są niepoprawne lub ujemne wypisz komunikat w polu wynik albo rzuć wyjątek
+            //TODO: oblicz wartość zamówienia i wypisz ją w polu wynik
+
+        }
     }
 }
