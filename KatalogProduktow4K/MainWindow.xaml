@@ -15,6 +15,8 @@
             <RowDefinition Height="Auto"/> <!-- nazwa -->
             <RowDefinition Height="Auto"/> <!-- cena -->
             <RowDefinition Height="Auto"/> <!-- ilość -->
+            <RowDefinition Height="Auto"/> <!-- combobox - kategorie -->
+            <RowDefinition Height="Auto"/> <!-- checkbox promocje -->
             <RowDefinition Height="Auto"/> <!-- przycisk -->
             <RowDefinition Height="*"/> <!-- wynik -->
         </Grid.RowDefinitions>
@@ -27,8 +29,14 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Ilość" VerticalAlignment="Center" />
         <TextBox x:Name="IloscTextBox" Grid.Row="2" Grid.Column="1" Margin="0,5,0,10" VerticalAlignment="Center" />
 
-        <Button x:Name="ObliczButton" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Oblicz wartość" Click="Oblicz"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Kategoria" VerticalAlignment="Center" />
+        <ComboBox x:Name="KategorieComboBox" Grid.Row="3" Grid.Column="1" Margin="0,5,0,10" VerticalAlignment="Center" />
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Promocja" VerticalAlignment="Center" />
+        <CheckBox x:Name="PromocjaCheckBox" Grid.Row="4" Grid.Column="1" Margin="0,5,0,10" VerticalAlignment="Center" />
 
-        <TextBlock x:Name="WynikTextBlock" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16"/>
+        <Button x:Name="ObliczButton" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Oblicz wartość" Click="Oblicz"/>
+
+        <TextBlock x:Name="WynikTextBlock" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16"/>
     </Grid>
 </Window>

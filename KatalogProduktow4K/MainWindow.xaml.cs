@@ -19,6 +19,8 @@ namespace KatalogProduktow4K
         public MainWindow()
         {
             InitializeComponent();
+            KategorieComboBox.ItemsSource = new string[] { "Elektronika", "Odzież", "Książki", "Meble" };
+            KategorieComboBox.SelectedIndex = 0;
         }
 
         private void Oblicz(object sender, RoutedEventArgs e)
