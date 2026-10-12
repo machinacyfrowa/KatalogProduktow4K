@@ -6,18 +6,29 @@
         xmlns:local="clr-namespace:KatalogProduktow4K"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="400">
-    <StackPanel Margin="20,20,20,20">
-        <TextBlock Text="Nazwa produktu" />
-        <TextBox x:Name="NazwaTextBox" Margin="0,5,0,10" />
-        
-        <TextBlock Text="Cena" />
-        <TextBox x:Name="CenaTextBox" Margin="0,5,0,10" />
-        
-        <TextBlock Text="Ilość" />
-        <TextBox x:Name="IloscTextBox" Margin="0,5,0,10" />
+    <Grid Margin="20,20,20,20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" /> <!-- tyle ile potrzebujesz -->
+            <ColumnDefinition Width="*" /> <!-- tyle ile zostanie -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- nazwa -->
+            <RowDefinition Height="Auto"/> <!-- cena -->
+            <RowDefinition Height="Auto"/> <!-- ilość -->
+            <RowDefinition Height="Auto"/> <!-- przycisk -->
+            <RowDefinition Height="*"/> <!-- wynik -->
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nazwa produktu" Margin="0,0,10,0" VerticalAlignment="Center" />
+        <TextBox x:Name="NazwaTextBox" Grid.Row="0" Grid.Column="1" Margin="0,5,0,10" VerticalAlignment="Center" />
 
-        <Button x:Name="ObliczButton" Content="Oblicz wartość" Click="Oblicz"/>
-        
-        <TextBlock x:Name="WynikTextBlock" FontSize="16"/>
-    </StackPanel>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Cena" VerticalAlignment="Center" />
+        <TextBox x:Name="CenaTextBox" Grid.Row="1" Grid.Column="1" Margin="0,5,0,10" VerticalAlignment="Center" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Ilość" VerticalAlignment="Center" />
+        <TextBox x:Name="IloscTextBox" Grid.Row="2" Grid.Column="1" Margin="0,5,0,10" VerticalAlignment="Center" />
+
+        <Button x:Name="ObliczButton" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Oblicz wartość" Click="Oblicz"/>
+
+        <TextBlock x:Name="WynikTextBlock" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16"/>
+    </Grid>
 </Window>
