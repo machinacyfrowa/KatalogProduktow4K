@@ -28,6 +28,22 @@ namespace KatalogProduktow4K
             //TODO: Jeśli wartości są niepoprawne lub ujemne wypisz komunikat w polu wynik albo rzuć wyjątek
             //TODO: oblicz wartość zamówienia i wypisz ją w polu wynik
 
+            //double cena = double.Parse(CenaTextBox.Text);
+            //jeżeli tryparse sie nie powiedzie to zmien komuniat na polu wynik
+            //i wyjdź z metody Oblicz()
+            if (!double.TryParse(CenaTextBox.Text, out double cena))
+            {
+                WynikTextBlock.Text = "Niepoprawna wartość ceny";
+                return;
+            }
+            //tak samo z ilością
+            if (!int.TryParse(IloscTextBox.Text, out int ilosc))
+            {
+                WynikTextBlock.Text = "Niepoprawna wartość ilości";
+                return;
+            }
+            double wartoscZamowienia = cena * ilosc;
+            WynikTextBlock.Text = wartoscZamowienia.ToString();
         }
     }
 }
