@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace KatalogProduktow4K
 {
@@ -16,7 +17,7 @@ namespace KatalogProduktow4K
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Produkt> produkty = new List<Produkt>();
+        ObservableCollection<Produkt> produkty = new ObservableCollection<Produkt>();
         public MainWindow()
         {
             InitializeComponent();
@@ -53,6 +54,29 @@ namespace KatalogProduktow4K
 
             // F2 = dwa miejsca po przecinku, separator zgodny z ustawieniami systemu
             WynikTextBlock.Text = $"{NazwaTextBox.Text} ({kategoria}): {wartoscZamowienia:F2} zł";
+        }
+
+        private void DodajProdukt(object sender, RoutedEventArgs e)
+        {
+            string nazwa = NazwaTextBox.Text;
+            double cena = double.Parse(CenaTextBox.Text);
+            int ilosc = int.Parse(IloscTextBox.Text);
+            string kategoria = KategorieComboBox.SelectedItem as string ?? "brak kategorii";
+            
+            produkty.Add(new Produkt { Nazwa = nazwa, Cena = cena, Ilosc = ilosc, Kategoria = kategoria});
+
+        }
+
+        private void UsunProdukt(object sender, RoutedEventArgs e)
+        {
+            if(ListaProduktow.SelectedItem is Produkt wybranyProdukt)
+            {
+                produkty.Remove(wybranyProdukt);
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano produktu do usunięcia.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
