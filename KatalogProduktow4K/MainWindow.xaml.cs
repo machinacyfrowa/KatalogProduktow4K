@@ -16,11 +16,15 @@ namespace KatalogProduktow4K
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Produkt> produkty = new List<Produkt>();
         public MainWindow()
         {
             InitializeComponent();
             KategorieComboBox.ItemsSource = new string[] { "Elektronika", "Odzież", "Książki", "Meble" };
             KategorieComboBox.SelectedIndex = 0;
+            produkty.Add(new Produkt { Nazwa = "Laptop", Cena = 3500, Ilosc = 5, Kategoria = "Elektronika" });
+            produkty.Add(new Produkt { Nazwa = "Koszula", Cena = 120, Ilosc = 10, Kategoria = "Odzież" });
+            ListaProduktow.ItemsSource = produkty;
         }
 
         private void Oblicz(object sender, RoutedEventArgs e)
