@@ -17,7 +17,9 @@ namespace KatalogProduktow4K
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Produkt> produkty = new ObservableCollection<Produkt>();
+        //jeżeli potrzebujemy skorzystać z czegoś przez data binding, to musi publiczne i 
+        //musi być własnością (property), a nie polem (field) - musi mieć get i set
+        public ObservableCollection<Produkt> produkty { get; set; } = new ObservableCollection<Produkt>();
         public MainWindow()
         {
             InitializeComponent();
