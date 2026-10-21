@@ -27,7 +27,12 @@ namespace KatalogProduktow4K
             KategorieComboBox.SelectedIndex = 0;
             produkty.Add(new Produkt { Nazwa = "Laptop", Cena = 3500, Ilosc = 5, Kategoria = "Elektronika" });
             produkty.Add(new Produkt { Nazwa = "Koszula", Cena = 120, Ilosc = 10, Kategoria = "Odzież" });
-            ListaProduktow.ItemsSource = produkty;
+            //ListaProduktow.ItemsSource = produkty;
+            //zamiast przypisywać itemsource możemmy ustalić kontekst danych dla całego okna,
+            //wtedy wszystkie kontrolki w tym oknie mogą korzystać z tego kontekstu
+            //i przez to czytać dane z właściwości tego okna (czyli z MainWindow)
+            //takie jak public ObservableCollection<Produkt> produkty { get; set; }
+            DataContext = this;
         }
 
         private void Oblicz(object sender, RoutedEventArgs e)

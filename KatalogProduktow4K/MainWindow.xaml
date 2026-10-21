@@ -43,7 +43,7 @@
         <TextBlock x:Name="WynikTextBlock" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" Margin="0,12,0,12"/>
         <Button x:Name="DodajProduktButton" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Content="Dodaj produkt" Click="DodajProdukt"/>
         <!-- lista produktów w (przed)ostatnim wierszu, szerokość dwóch kolumn, margines z góry 12px -->
-        <ListBox x:Name="ListaProduktow" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,12,0,12">
+        <ListBox x:Name="ListaProduktow" ItemsSource="{Binding produkty}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,12,0,12">
             <!-- miejsce na szablon wyświetlanych danych -->
             <ListBox.ItemTemplate>
                 <DataTemplate>
