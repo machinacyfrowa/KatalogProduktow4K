@@ -38,13 +38,18 @@
         
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Promocja" VerticalAlignment="Center" />
         <CheckBox x:Name="PromocjaCheckBox" Grid.Row="4" Grid.Column="1" Margin="0,5,0,10" VerticalAlignment="Center" />
-
-        <Button x:Name="ObliczButton" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Oblicz wartość" Click="Oblicz"/>
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button x:Name="ObliczButton" Content="Oblicz wartość" Click="Oblicz" Width="200"/>
+            <Button x:Name="ZapiszButton" Content="Zapisz" Click="Zapisz" Margin="10,0,0,0" Width="200"/>
+        </StackPanel>
+        
 
         <TextBlock x:Name="WynikTextBlock" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" Margin="0,12,0,12"/>
         <Button x:Name="DodajProduktButton" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Content="Dodaj produkt" Click="DodajProdukt"/>
         <!-- lista produktów w (przed)ostatnim wierszu, szerokość dwóch kolumn, margines z góry 12px -->
-        <ListBox x:Name="ListaProduktow" ItemsSource="{Binding produkty}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,12,0,12">
+        <ListBox x:Name="ListaProduktow" ItemsSource="{Binding produkty}" 
+                 Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" 
+                 Margin="0,12,0,12" SelectionChanged="PokazZaznaczony">
             <!-- miejsce na szablon wyświetlanych danych -->
             <ListBox.ItemTemplate>
                 <DataTemplate>

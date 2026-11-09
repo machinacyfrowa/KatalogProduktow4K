@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Net.Http.Headers;
 
 namespace KatalogProduktow4K
 {
@@ -84,6 +85,32 @@ namespace KatalogProduktow4K
             {
                 MessageBox.Show("Nie wybrano produktu do usunięcia.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void PokazZaznaczony(object sender, SelectionChangedEventArgs e)
+        {
+            if(ListaProduktow.SelectedItem is not Produkt p) return;
+            //tego juz nie musimy sprawdzać, bo w if sprawdzamy czy jest to Produkt
+            //Produkt p = ListaProduktow.SelectedItem as Produkt;
+            NazwaTextBox.Text = p.Nazwa;
+            CenaTextBox.Text = p.Cena.ToString("F2");
+            IloscTextBox.Text = p.Ilosc.ToString();
+        }
+
+        private void Zapisz(object sender, RoutedEventArgs e)
+        {
+            //sprawdz czy mamy prawidłowo zaznaczony na liście produkt,
+            //bo jeśli nie to nie zapisujemy
+            if(ListaProduktow.SelectedItem is not Produkt p) return;
+            //po drugie parsujemy cene i ilosc, bo to są stringi w TextBoxach
+            if (!double.TryParse(CenaTextBox.Text, out double cena) || cena < 0) return;
+            if (!int.TryParse(IloscTextBox.Text, out int ilosc) || ilosc < 0) return;
+            string nazwa = NazwaTextBox.Text;
+            //aktualizujemy właściwości obiektu Produkt, który jest w kolekcji ObservableCollection
+            p.Nazwa = nazwa;
+            p.Cena = cena;
+            p.Ilosc = ilosc;
+            WynikTextBlock.Text = $"Zapisano zmiany dla produktu: {p.Nazwa}";
         }
     }
 }
