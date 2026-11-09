@@ -79,7 +79,13 @@ namespace KatalogProduktow4K
         {
             if(ListaProduktow.SelectedItem is Produkt wybranyProdukt)
             {
-                produkty.Remove(wybranyProdukt);
+                MessageBoxResult wynik = 
+                    MessageBox.Show($"Czy na pewno chcesz usunąć produkt: {wybranyProdukt.Nazwa}?", 
+                    "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if(wynik == MessageBoxResult.Yes)
+                {
+                    produkty.Remove(wybranyProdukt);
+                }
             }
             else
             {
