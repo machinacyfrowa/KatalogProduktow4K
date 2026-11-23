@@ -23,6 +23,10 @@ namespace KatalogProduktow4K
             set { ilosc = value < 0 ? 0 : value; Zmiana(nameof(Ilosc)); }
         }
         public string Kategoria { get; set; } = "";
+        public double WartoscMagazynu
+        {
+            get { return Cena * Ilosc; }
+        }
         //nadpisujemy domyślną metodę ToString, aby zwracała czytelny opis produktu
         //public override string ToString()
         //{

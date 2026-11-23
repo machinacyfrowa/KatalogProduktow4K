@@ -28,6 +28,12 @@ namespace KatalogProduktow4K
             KategorieComboBox.SelectedIndex = 0;
             produkty.Add(new Produkt { Nazwa = "Laptop", Cena = 3500, Ilosc = 5, Kategoria = "Elektronika" });
             produkty.Add(new Produkt { Nazwa = "Koszula", Cena = 120, Ilosc = 10, Kategoria = "Odzież" });
+            produkty.Add(new Produkt { Nazwa = "Słuchawki", Cena = 250, Ilosc = 0, Kategoria = "Elektronika" });
+            produkty.Add(new Produkt { Nazwa = "Monitor", Cena = 900, Ilosc = 3, Kategoria = "Elektronika" });
+            produkty.Add(new Produkt { Nazwa = "Kurtka", Cena = 450, Ilosc = 2, Kategoria = "Odzież" });
+            produkty.Add(new Produkt { Nazwa = "Lalka (powieść)", Cena = 39, Ilosc = 25, Kategoria = "Książki" });
+            produkty.Add(new Produkt { Nazwa = "Atlas świata", Cena = 89, Ilosc = 0, Kategoria = "Książki" });
+            produkty.Add(new Produkt { Nazwa = "Krzesło biurowe", Cena = 650, Ilosc = 4, Kategoria = "Meble" });
             //ListaProduktow.ItemsSource = produkty;
             //zamiast przypisywać itemsource możemmy ustalić kontekst danych dla całego okna,
             //wtedy wszystkie kontrolki w tym oknie mogą korzystać z tego kontekstu
